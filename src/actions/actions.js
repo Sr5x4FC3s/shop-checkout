@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 export const handleCheckout = (bool) => {
   return {
     type: `CHECKOUT_CLICKED`,
@@ -48,4 +50,15 @@ export const F3data = (data) => {
 };
 
 export const sendData = (data) => {
+  return ((dispatch) => {
+    let id = data.id;
+
+    axios.post(`/account/id=${id}`, data)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  })
 };

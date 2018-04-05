@@ -17,20 +17,47 @@ class AppContainer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>Let's go shopping now, breh</h1>
-        <Homepage />
-        <Account />
-        <Billing />
-        <Credit />
-        <Summary />
-      </div>
-    )
+    //conditional rendering
+    if (!this.props.homepage) {
+      return (
+        <div>
+          <h1>Homepage</h1>
+          <Homepage />
+        </div>
+      )
+    } else if (this.props.homepage) {
+      return (
+        <div>
+          <h1>Accounting information</h1>
+          <Account />
+        </div>
+      )
+    } else if (this.props.f1complete) {
+      return (
+        <div>
+          <h1>Billing information</h1>
+          <Billing />
+        </div>
+      )
+    } else if (this.props.f2complete) {
+      return (
+        <div>
+          <h1>Credit Card information</h1>
+          <Credit />
+        </div>
+      )
+    } else if (this.props.f3complete) {
+      return (
+        <div>
+          <h1>Summary</h1>
+          <Summary />
+        </div>
+      )
+    }
   }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     homepage: state.handleCheckout,
     f1complete: state.F1Complete,
