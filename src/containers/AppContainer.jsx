@@ -30,9 +30,9 @@ class AppContainer extends React.Component {
   }
 };
 
-const mapToState = (state) => {
+const mapStateToProps = (state) => {
   return {
-    homepage: state.Homepage,
+    homepage: state.handleCheckout,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete,
@@ -48,5 +48,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapDispatchToProps, mapDispatchToProps)(AppContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
 
