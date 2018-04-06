@@ -23,7 +23,6 @@ class AppContainer extends React.Component {
     let f3 = this.props.f3complete;
 
     //conditional rendering
-    console.log('f1:', f1, 'f2', f2);
 
     if (!home) {
       return (
@@ -33,7 +32,6 @@ class AppContainer extends React.Component {
         </div>
       )
     } else if (home === true && f1 === false && f2 === false && f3 === false) {
-      console.log('hey', this.props.homepage, f1, f2, f3)
       return (
         <div>
           <h1>Accounting information</h1>
@@ -41,7 +39,6 @@ class AppContainer extends React.Component {
         </div>
       )
     } else if (home === true && f1 === true && f2 === false && f3 === false) {
-      console.log('ball', this.props.homepage, f1, f2, f3)
       return (
         <div>
           <h1>Billing information</h1>
@@ -49,7 +46,6 @@ class AppContainer extends React.Component {
         </div>
       )
     } else if (home === true && f1 === true && f2 === true && f3 === false) {
-      console.log('hog', this.props.homepage, f1, f2, f3)
       return (
         <div>
           <h1>Credit Card information</h1>
@@ -57,7 +53,6 @@ class AppContainer extends React.Component {
         </div>
       )
     } else if (home === true && f1 === true && f2 === true && f3 === true) {
-      console.log('rog', this.props.homepage, f1, f2, f3)
       return (
         <div>
           <h1>Summary</h1>
@@ -80,11 +75,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default connect(mapStateToProps)(AppContainer);
 
