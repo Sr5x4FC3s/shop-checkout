@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { F2Complete, F2data } from '../actions/actions.js';
 
 let Billing = (props) => {
   const { handleSubmit } = props;
+  console.log(props);
 
   return (
     <div>

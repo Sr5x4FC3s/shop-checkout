@@ -11,22 +11,23 @@ let Account = (props) => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor='firstName'>First Name</label>
-        <Field name='firstName' component='input' type='text' />
+          <Field name='firstName' component='input' type='text' placeholder='first name...' />
       </div>
       <br></br>
       <div>
         <label htmlFor='lastName'>Last Name</label>
-        <Field name='lastName' component='input' type='text' />
+          <Field name='lastName' component='input' type='text' placeholder='last name...' />
       </div>
       <br></br>
       <div>
         <label htmlFor='password'>Password</label>
-        <Field name='password' component='input' type='text' />
+          <Field name='password' component='input' type='text' placeholder='create password...'/>
       </div>
       <br></br>
       <div>
         <label htmlFor='id'>Custom ID</label>
-        <Field name='id' component='input' type='text' />
+
+          <Field name='id' component='input' type='text' placeholder='enter custom ID'/>
       </div>
       <br></br>
       {/* <button id='account-btn' onClick={props.handleSubmit(() => { alert('chee')})}>Next</button> */}
