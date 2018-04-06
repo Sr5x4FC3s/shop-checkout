@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import Homepage from '../components/Homepage.jsx';
-import Account from '../components/Account.jsx'
-import Billing from '../components/Billing.jsx'
-import Credit from '../components/Credit.jsx'
-import Summary from '../components/Summary.jsx'
+import HomepageContainer from './HomepageContainer.jsx';
+import AccountContainer from './AccountContainer.jsx'
+import BillingContainer  from './BillingContainer.jsx'
+import CreditContainer  from './CreditContainer.jsx'
+import SummaryContainer  from './SummaryContainer.jsx'
 
 class AppContainer extends React.Component {
   //we can keep state and see if certain fields have been filled with a boolean 
@@ -17,40 +17,49 @@ class AppContainer extends React.Component {
   }
 
   render() {
+    let home = this.props.homepage;
+    console.log(home);
+    let f1 = this.props.f1complete;
+    let f2 = this.props.f2complete;
+    let f3 = this.props.f3complete;
+
     //conditional rendering
-    if (!this.props.homepage) {
+    if (!home) {
+      console.log(home);
+      console.log(f1);
       return (
         <div>
           <h1>Homepage</h1>
-          <Homepage />
+          <HomepageContainer />
         </div>
       )
-    } else if (this.props.homepage) {
+    } else if (home) {
+      console.log('hey', this.props.homepage, f1)
       return (
         <div>
           <h1>Accounting information</h1>
-          <Account />
+          <AccountContainer />
         </div>
       )
-    } else if (this.props.f1complete) {
+    } else if (home && f1) {
       return (
         <div>
           <h1>Billing information</h1>
-          <Billing />
+          <BillingContainer/>
         </div>
       )
-    } else if (this.props.f2complete) {
+    } else if (home && f1 && f2) {
       return (
         <div>
           <h1>Credit Card information</h1>
-          <Credit />
+          <CreditContainer />
         </div>
       )
-    } else if (this.props.f3complete) {
+    } else if (home && f1 && f2 && f3) {
       return (
         <div>
           <h1>Summary</h1>
-          <Summary />
+          <SummaryContainer />
         </div>
       )
     }

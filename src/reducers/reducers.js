@@ -10,7 +10,7 @@ export const handleCheckout = (state = false, action) => {
 export const F1Complete = (state = false, action) => {
   switch (action.type) {
     case `F1_COMPLETE`:
-      return action.homepage;
+      return action.f1complete;
     default: 
       return state;
   }
@@ -19,7 +19,7 @@ export const F1Complete = (state = false, action) => {
 export const F2Complete = (state = false, action) => {
   switch (action.type) {
     case `F2_COMPLETE`:
-      return action.homepage;
+      return action.f2complete;
     default: 
       return state;
   }
@@ -28,7 +28,7 @@ export const F2Complete = (state = false, action) => {
 export const F3Complete = (state = false, action) => {
   switch (action.type) {
     case `F3_COMPLETE`:
-      return action.homepage;
+      return action.f2complete;
     default: 
       return state;
   }
