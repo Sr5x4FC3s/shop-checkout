@@ -35,7 +35,7 @@ let Billing = (props) => {
       </div>
       <br></br>
     </form>
-    <button id='billing-nxt-btn'>Next</button>
+    <button id='billing-nxt-btn' onClick={props.handleClick}>Next</button>
   </div>
   )
 }

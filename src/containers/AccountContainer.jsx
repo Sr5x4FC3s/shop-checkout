@@ -29,9 +29,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  let boolean = true;
   return {
-    handleClick: (boolean) => { (dispatch(F1complete(boolean))) }
+    handleClick: (boolean) => { (dispatch(F1complete(true))) }
   }
 };
 

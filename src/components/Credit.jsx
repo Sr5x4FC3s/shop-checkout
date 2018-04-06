@@ -30,7 +30,7 @@ let Credit = (props) => {
         </div>
         <br></br>
       </form>
-      <button id='credit-nxt-btn'>Next</button>
+      <button id='credit-nxt-btn' onClick={props.handleClick}>Next</button>
     </div>
   )
 }

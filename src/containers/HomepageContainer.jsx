@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCheckout: (boolean) => { dispatch(handleCheckout(boolean)) }
+    handleCheckout: (boolean) => { dispatch(handleCheckout(true)) }
   }
 };
 

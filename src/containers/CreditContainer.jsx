@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { F3complete } from '../actions/actions.js';
 import Credit from '../components/Credit.jsx';
 
 class CreditContainer extends React.Component {
@@ -29,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    handleClick: (boolean) => { (dispatch(F3complete(true))) }
   }
 };
 

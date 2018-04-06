@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { F2complete } from '../actions/actions.js';
 import Billing from '../components/Billing.jsx';
 
 class BillingContainer extends React.Component {
@@ -29,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    handleClick: (boolean) => { (dispatch(F2complete(true))) }
   }
 };
 

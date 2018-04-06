@@ -28,7 +28,7 @@ export const F2Complete = (state = false, action) => {
 export const F3Complete = (state = false, action) => {
   switch (action.type) {
     case `F3_COMPLETE`:
-      return action.f2complete;
+      return action.f3complete;
     default: 
       return state;
   }

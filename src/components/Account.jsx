@@ -29,6 +29,7 @@ let Account = (props) => {
         <Field name='id' component='input' type='text' />
       </div>
       <br></br>
+      {/* <button id='account-btn' onClick={props.handleSubmit(() => { alert('chee')})}>Next</button> */}
     </form>
     <button id='account-btn' onClick={props.handleClick}>Next</button>
     </div>
