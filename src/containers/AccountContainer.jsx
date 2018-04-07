@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { change } from 'redux-form';
 import { F1complete } from '../actions/actions.js';
+import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 import Account from '../components/Account.jsx';
 
 class AccountContainer extends React.Component {
@@ -22,15 +24,29 @@ const mapStateToProps = (state, ownProps) => {
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete,
-    f1data: state.F1data,
-    f2data: state.F2data,
-    f3data: state.F3data
+    firstName: state.FNinput,
+    lastName: state.LNinput,
+    password: state.PWinput,
+    id: state.IDinput,
+    address1: state.L1input,
+    address2: state.L2input,
+    city: state.Cityinput,
+    state: state.Stateinput,
+    zipcode: state.Zipinput,
+    credit: state.CCinput,
+    expiration: state.EXPinput,
+    cvv: state.CVVinput,
+    zipcode2: state.ZIP2input
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: (boolean) => { (dispatch(F1complete(true))) }
+    handleClick: (boolean) => { (dispatch(F1complete(true))) },
+    handleFN: (event) => { (dispatch(FNinput(event.target.value))) },
+    handleLN: (event) => { (dispatch(LNinput(event.target.value))) },
+    handlePW: (event) => { (dispatch(PWinput(event.target.value))) },
+    handleID: (event) => { (dispatch(IDinput(event.target.value))) }
   }
 };
 

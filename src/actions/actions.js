@@ -28,27 +28,6 @@ export const F3complete = (bool) => {
   }
 };
 
-export const F1data = (data) => {
-  return {
-    type: `GOT_F1_DATA`,
-    f1data: data
-  }
-};
-
-export const F2data = (data) => {
-  return {
-    type: `GOT_F2_DATA`,
-    f2data: data
-  }
-};
-
-export const F3data = (data) => {
-  return {
-    type: `GOT_F3_DATA`,
-    f3data: data
-  }
-};
-
 export const sendData = (data) => {
   return ((dispatch) => {
     let id = data.id;

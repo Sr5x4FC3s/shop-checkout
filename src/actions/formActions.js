@@ -2,28 +2,28 @@
 export const FNinput = (string) => {
   return {
     type: `FN_INPUT`,
-    homepage: string
+    firstName: string
   }
 };
 
 export const LNinput = (string) => {
   return {
     type: `LN_INPUT`,
-    homepage: string
+    lastName: string
   }
 };
 
 export const PWinput = (string) => {
   return {
     type: `PW_INPUT`,
-    homepage: string
+    password: string
   }
 };
 
 export const IDinput = (string) => {
   return {
     type: `ID_INPUT`,
-    homepage: string
+    id: string
   }
 };
 
@@ -31,63 +31,63 @@ export const IDinput = (string) => {
 export const L1input = (string) => {
   return {
     type: `LINE1_INPUT`,
-    homepage: string
+    line1: string
   }
 };
 
 export const L2input = (string) => {
   return {
     type: `LINE2_INPUT`,
-    homepage: string
+    line2: string
   }
 };
 
 export const Cityinput = (string) => {
   return {
     type: `CITY_INPUT`,
-    homepage: string
+    city: string
   }
 };
 
 export const Stateinput = (string) => {
   return {
     type: `STATE_INPUT`,
-    homepage: string
+    state: string
   }
 };
 
 export const Zipinput = (string) => {
   return {
     type: `ZIP_INPUT`,
-    homepage: string
+    zipcode: string
   }
 };
 
 //credit component input action
-export const CCInput = (string) => {
+export const CCinput = (string) => {
   return {
     type: `CC_INPUT`,
-    homepage: string
+    credit: string
   }
 };
 
 export const EXPinput = (string) => {
   return {
     type: `EXP_INPUT`,
-    homepage: string
+    expire: string
   }
 };
 
 export const CVVinput = (string) => {
   return {
     type: `CVV_INPUT`,
-    homepage: string
+    cvv: string
   }
 };
 
 export const Zip2input = (string) => {
   return {
     type: `ZIP2_INPUT`,
-    homepage: string
+    zip: string
   }
 };
