@@ -27,17 +27,3 @@ export const F3complete = (bool) => {
     f3complete: bool
   }
 };
-
-export const sendData = (data) => {
-  return ((dispatch) => {
-    let id = data.id;
-
-    axios.post(`/account/id=${id}`, data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  })
-};

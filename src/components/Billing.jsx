@@ -6,33 +6,32 @@ import { L1input, L2input, Cityinput, Stateinput, Zipinput } from '../actions/fo
 
 let Billing = (props) => {
   const { handleSubmit, reset } = props;
-  console.log(props);
 
   return (
     <div>
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor='address1'>Address-line-1</label>
+        <label htmlFor='address1'>Address-line-1:</label>
         <Field name='address1' component='input' type='text' onChange={props.handleL1} placeholder='Address Line 1...'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='address2'>Address-line-2</label>
+        <label htmlFor='address2'>Address-line-2:</label>
         <Field name='address2' component='input' type='text' onChange={props.handleL2} placeholder='Address Line 2...'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='city'>City</label>
+        <label htmlFor='city'>City:</label>
         <Field name='city' component='input' type='text' onChange={props.handleCity} placeholder='City...'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='state'>State</label>
+        <label htmlFor='state'>State:</label>
         <Field name='state' component='input' type='text' onChange={props.handleState} placeholder='State...'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='zipcode'>ZipCode</label>
+        <label htmlFor='zipcode'>Zip Code:</label>
         <Field name='zipcode' component='input' type='text' onChange={props.handleZip} placeholder='Zip Code...'/>
       </div>
       <br></br>

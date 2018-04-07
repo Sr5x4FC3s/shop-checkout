@@ -5,28 +5,28 @@ import { F1Complete, F1data } from '../actions/actions.js';
 import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 
 let Account = (props) => {
-  console.log('account', props);
   const { handleSubmit, reset } = props;
+  
   return (
     <div>
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor='firstName'>First Name</label>
+        <label htmlFor='firstName'>First Name:</label>
           <Field name='firstName' component='input' type='text' placeholder='first name...' onChange={props.handleFN} value='value'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='lastName'>Last Name</label>
+        <label htmlFor='lastName'>Last Name:</label>
           <Field name='lastName' component='input' type='text' placeholder='last name...' onChange={props.handleLN} value='value' />
       </div>
       <br></br>
       <div>
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password'>Password:</label>
           <Field name='password' component='input' type='text' placeholder='create password...' onChange={props.handlePW} value='value'/>
       </div>
       <br></br>
       <div>
-        <label htmlFor='id'>Custom ID</label>
+        <label htmlFor='id'>Custom ID:</label>
 
           <Field name='id' component='input' type='text' placeholder='enter custom ID' onChange={props.handleID} value='value'/>
       </div>

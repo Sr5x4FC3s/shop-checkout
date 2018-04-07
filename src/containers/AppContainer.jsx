@@ -8,13 +8,6 @@ import CreditContainer  from './CreditContainer.jsx'
 import SummaryContainer  from './SummaryContainer.jsx'
 
 class AppContainer extends React.Component {
-  //we can keep state and see if certain fields have been filled with a boolean 
-  //use conditional renders when buttons are clicked
-  //use redux to store state 
-  componentDidMount() {
-    //fill in 
-    console.log(`this is the state of this app: `, this.props);
-  }
 
   render() {
     let home = this.props.homepage;

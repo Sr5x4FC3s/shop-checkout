@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import Summary from '../components/Summary.jsx';
+import { stateToArray } from '../utility/utility.js';
 
 class SummaryContainer extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class SummaryContainer extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state);
   return {
     homepage: state.handleCheckout,
     f1complete: state.F1Complete,
@@ -35,10 +37,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Summary);
+export default connect(mapStateToProps)(Summary);
