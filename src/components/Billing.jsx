@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { F2Complete, F2data } from '../actions/actions.js';
+import { F2Complete } from '../actions/actions.js';
 import { L1input, L2input, Cityinput, Stateinput, Zipinput } from '../actions/formActions.js';
 
 let Billing = (props) => {
@@ -38,7 +38,7 @@ let Billing = (props) => {
     </form>
     <button id='billing-nxt-btn' onClick={props.handleClick}>Next</button>
     <button id='billing-clear' onClick={reset}>Reset</button>
-    <button id='billing-back'>Back</button>
+    <button id='billing-back' onClick={props.handleBack}>Back</button>
   </div>
   )
 }

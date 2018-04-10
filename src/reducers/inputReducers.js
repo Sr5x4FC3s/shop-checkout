@@ -114,3 +114,12 @@ export const ZIP2input = (state = '', action) => {
       return state;
   }
 };
+
+export const Search = (state = '', action) => {
+  switch (action.type) {
+    case `SEARCH_INPUT`:
+      return action.search;
+    default:
+      return state;
+  }
+};

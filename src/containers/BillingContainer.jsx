@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { F2complete } from '../actions/actions.js';
+import { F1complete, F2complete } from '../actions/actions.js';
 import { L1input, L2input, Cityinput, Stateinput, Zipinput } from '../actions/formActions.js';
 import Billing from '../components/Billing.jsx';
 
@@ -20,6 +20,8 @@ class BillingContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     homepage: state.handleCheckout,
+    search: state.Search,
+    gosearch: state.GoSearch,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete,
@@ -42,6 +44,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleClick: (boolean) => { (dispatch(F2complete(true))) },
+    handleBack: (boolean) => { (dispatch(F1complete(false))) },
     handleL1: (event) => { (dispatch(L1input(event.target.value))) },
     handleL2: (event) => { (dispatch(L2input(event.target.value))) },
     handleCity: (event) => { (dispatch(Cityinput(event.target.value))) },

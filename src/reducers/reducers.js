@@ -34,29 +34,20 @@ export const F3Complete = (state = false, action) => {
   }
 };
 
-export const F1data = (state = null, action) => {
+export const Response = (state = {}, action) => {
   switch (action.type) {
-    case `GOT_F1_DATA`:
-      return action.f1data;
-    default: 
+    case `DATA_SEARCH_SUCCESSFUL`:
+      return action.payload;
+    default:
       return state;
   }
-}
+};
 
-export const F2data = (state = null, action) => {
+export const GoSearch = (state = false, action) => {
   switch (action.type) {
-    case `GOT_F2_DATA`:
-      return action.f2data;
-    default: 
+    case `LETS_SEARCH`:
+      return action.gosearch;
+    default:
       return state;
   }
-}
-
-export const F3data = (state = null, action) => {
-  switch (action.type) {
-    case `GOT_F3_DATA`:
-      return action.f3data;
-    default: 
-      return state;
-  }
-}
+};

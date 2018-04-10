@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { change } from 'redux-form';
-import { F1complete } from '../actions/actions.js';
+import { handleCheckout, F1complete } from '../actions/actions.js';
 import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 import Account from '../components/Account.jsx';
 
@@ -21,6 +21,9 @@ class AccountContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     homepage: state.handleCheckout,
+    search: state.Search,
+    gosearch: state.GoSearch,
+    response: state.Response,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete,
@@ -43,6 +46,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleClick: (boolean) => { (dispatch(F1complete(true))) },
+    handleBack: (boolean) => { (dispatch(handleCheckout(false))) },
     handleFN: (event) => { (dispatch(FNinput(event.target.value))) },
     handleLN: (event) => { (dispatch(LNinput(event.target.value))) },
     handlePW: (event) => { (dispatch(PWinput(event.target.value))) },

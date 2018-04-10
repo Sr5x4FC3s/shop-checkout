@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { handleCheckout } from '../actions/actions.js';
+import { handleCheckout, GoSearch } from '../actions/actions.js';
+import { Search } from '../actions/formActions.js';
 import Homepage from '../components/Homepage.jsx';
 
 class HomepageContainer extends React.Component {
@@ -18,6 +19,9 @@ class HomepageContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     homepage: state.handleCheckout,
+    search: state.Search,
+    response: state.Response,
+    gosearch: state.GoSearch,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete, 
@@ -39,7 +43,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCheckout: (boolean) => { dispatch(handleCheckout(true)) }
+    handleSearch: (boolean) => { dispatch(GoSearch(true)) },
+    handleCheckout: (boolean) => { dispatch(handleCheckout(true)) },
   }
 };
 

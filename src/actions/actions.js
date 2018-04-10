@@ -27,3 +27,17 @@ export const F3complete = (bool) => {
     f3complete: bool
   }
 };
+
+export const Response = (object) => {
+  return {
+    type: `DATA_SEARCH_SUCCESSFUL`,
+    payload: object
+  }
+}; 
+
+export const GoSearch = (bool) => {
+  return {
+    type: 'LETS_SEARCH',
+    gosearch: bool
+  }
+};

@@ -6,7 +6,7 @@ import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 
 let Account = (props) => {
   const { handleSubmit, reset } = props;
-  
+
   return (
     <div>
     <form onSubmit={handleSubmit}>
@@ -22,7 +22,7 @@ let Account = (props) => {
       <br></br>
       <div>
         <label htmlFor='password'>Password:</label>
-          <Field name='password' component='input' type='text' placeholder='create password...' onChange={props.handlePW} value='value'/>
+          <Field name='password' component='input' type='password' placeholder='create password...' onChange={props.handlePW} value='value'/>
       </div>
       <br></br>
       <div>
@@ -35,7 +35,7 @@ let Account = (props) => {
     </form>
     <button id='account-btn' onClick={props.handleClick}>Next</button>
     <button id='account-clear' onClick={reset}>Reset</button>
-    <button id='account-back'>Back</button>
+    <button id='account-back' onClick={props.handleBack}>Back</button>
     </div>
   )
 }

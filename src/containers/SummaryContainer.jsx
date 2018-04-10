@@ -18,6 +18,9 @@ const mapStateToProps = (state, ownProps) => {
   console.log(state);
   return {
     homepage: state.handleCheckout,
+    search: state.Search,
+    response: state.Response,
+    gosearch: state.GoSearch,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
     f3complete: state.F3Complete,

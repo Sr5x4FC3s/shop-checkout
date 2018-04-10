@@ -1,18 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { F2complete, F3complete } from '../actions/actions.js';
-import { EXPinput, CCinput, CVVinput, Zip2input } from '../actions/formActions.js';
-import Credit from '../components/Credit.jsx';
+import Searched from '../components/Searched.jsx';
+import { Search } from '../actions/formActions.js';
+import { stateToArray } from '../utility/utility.js';
 
-class CreditContainer extends React.Component {
-  submit = (values) => {
-    console.log(values);
+
+class SearchedContainer extends React.Component {
+  constructor(props) {
+    super(props);
   }
-
   render() {
     return (
-      <Credit onSubmit={this.submit}/>
+      <div>
+        <Searched data={props} searchfunc={props.searchfunc} />
+      </div>
     )
   }
 }
@@ -21,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     homepage: state.handleCheckout,
     search: state.Search,
+    response: state.Response,
     gosearch: state.GoSearch,
     f1complete: state.F1Complete,
     f2complete: state.F2Complete,
@@ -43,13 +46,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: (boolean) => { (dispatch(F3complete(true))) },
-    handleBack: (boolean) => { (dispatch(F2complete(false))) },
-    handleCC: (event) => { (dispatch(CCinput(event.target.value))) },
-    handleEXP: (event) => { (dispatch(EXPinput(event.target.value))) },
-    handleCVV: (event) => { (dispatch(CVVinput(event.target.value))) },
-    handleZip: (event) => { (dispatch(Zip2input(event.target.value))) }
+    handleSearch: (event) => { dispatch(Search(event.target.value)) },
+    Response: (object) => { dispatch(Search(props.response)) }
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Credit);
+export default connect(mapStateToProps, mapDispatchToProps)(Searched);

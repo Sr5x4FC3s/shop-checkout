@@ -1,14 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { stateToArray } from '../utility/utility.js';
-import { APIpost } from '../utility/utility.js';
 
-const Summary = (props) => {
-  let infoList = stateToArray(props);
-  let APIcall = APIpost(props);
-
+const FoundSummary = (props) => {
+  let infoList = stateToArray(props.foundItems);
   return (
     <div>
+      <h1>Your Summary has been Found, Thanks Again for your Purchase!</h1>
       {infoList.map(item => {
         return (<p key={item}>{item}</p>);
       })}
@@ -16,10 +13,9 @@ const Summary = (props) => {
         <br></br>
         <br></br>
         <br></br>
-        <button id='submit-info' onClick={APIcall} >Submit</button>
       </div>
     </div>
   )
-}
+};
 
-export default Summary;
+export default FoundSummary

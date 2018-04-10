@@ -21,4 +21,19 @@ const insert = (data) => {
   })
 };
 
+const search = (id, callback) => {
+  MongoClient.connect(url, (err, client) => {
+    if (err) throw err;
+    db = client.db('accounts');
+
+    db.collection('accounts').find({ 'id': id }).toArray((err, res) => {
+      if (err) throw err;
+      console.log('this is the res:', res);
+      callback(err, res);
+      client.close();
+    });
+  })
+};
+
 module.exports.insert = insert;
+module.exports.search = search;

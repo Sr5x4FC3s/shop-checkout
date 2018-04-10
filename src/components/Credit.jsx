@@ -33,7 +33,7 @@ let Credit = (props) => {
       </form>
       <button id='credit-nxt-btn' onClick={props.handleClick}>Next</button>
       <button id='credit-clear' onClick={reset}>Reset</button>
-      <button id='credit-back'>Back</button>
+      <button id='credit-back' onClick={props.handleBack}>Back</button>
     </div>
   )
 }

@@ -91,3 +91,11 @@ export const Zip2input = (string) => {
     zip: string
   }
 };
+
+//homepage component search input action
+export const Search = (string) => {
+  return {
+    type: `SEARCH_INPUT`,
+    search: string
+  }
+};
