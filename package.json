@@ -1,15 +1,19 @@
 {
-  "name": "checkout",
-  "version": "1.0.0",
-  "description": "",
+  "name": "shop-checkout",
+  "version": "0.0.1",
+  "description": "Simple Checkout Process using React, Redux, Express, and Mongo",
   "main": "index.js",
   "scripts": {
     "server": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "start": "webpack-dev-server --config ./webpack.config.js --mode development"
   },
+  "respository": {
+    "type": "git",
+    "url": "git://github.com/Sr5x4FC3s/shop-checkout"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Austin Lau",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
