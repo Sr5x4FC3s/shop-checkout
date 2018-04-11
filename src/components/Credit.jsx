@@ -6,6 +6,31 @@ import { EXPinput, CCinput, CVVinput, Zip2input } from '../actions/formActions.j
 
 let Credit = (props) => {
   const { handleSubmit, reset } = props;
+  const clearCheckpoint = (props) => {
+    let mustBeTrue = true;
+    let expirationMatch = /(\d{2}\/\d{4})/gi;
+    if ((typeof parseInt(props.credit) === 'number' && props.credit.length === 15) || (typeof parseInt(props.credit) === 'number' && props.credit.length === 16)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (typeof parseInt(props.expiration) === 'number' && props.expiration.toString().match(expirationMatch)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (typeof parseInt(props.cvv) === 'number' && props.cvv.length === 3) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (typeof parseInt(props.zipcode2) === 'number' && props.zipcode2.length === 5) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (mustBeTrue) {
+      props.handleClick();
+    } else {
+      reset();
+    }
+  }
 
   return (
     <div>
@@ -31,7 +56,7 @@ let Credit = (props) => {
         </div>
         <br></br>
       </form>
-      <button id='credit-nxt-btn' onClick={props.handleClick}>Next</button>
+      <button id='credit-nxt-btn' onClick={() => { clearCheckpoint(props) }}>Next</button>
       <button id='credit-clear' onClick={reset}>Reset</button>
       <button id='credit-back' onClick={props.handleBack}>Back</button>
     </div>

@@ -6,6 +6,35 @@ import { L1input, L2input, Cityinput, Stateinput, Zipinput } from '../actions/fo
 
 let Billing = (props) => {
   const { handleSubmit, reset } = props;
+  const clearCheckpoint = () => {
+    let mustBeTrue = true;
+    let matchAlphabet = /([A-Za-z /-_,.])/gi;
+    if (props.address1.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (props.address2.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (props.city.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (props.state.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (typeof parseInt(props.zipcode) === 'number' && props.zipcode.length === 5) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (mustBeTrue) {
+      props.handleClick();
+    } else {
+      reset();
+    }
+  }
 
   return (
     <div>
@@ -36,7 +65,7 @@ let Billing = (props) => {
       </div>
       <br></br>
     </form>
-    <button id='billing-nxt-btn' onClick={props.handleClick}>Next</button>
+    <button id='billing-nxt-btn' onClick={() => { clearCheckpoint() }}>Next</button>
     <button id='billing-clear' onClick={reset}>Reset</button>
     <button id='billing-back' onClick={props.handleBack}>Back</button>
   </div>

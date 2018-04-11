@@ -6,6 +6,32 @@ import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 
 let Account = (props) => {
   const { handleSubmit, reset } = props;
+  const clearCheckpoint = () => {
+    let mustBeTrue = true;
+    let matchAlphabet = /([A-Za-z -])/gi;
+    if (props.firstName.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (props.lastName.match(matchAlphabet)) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (props.password.length > 7) {
+    } else {
+      mustBeTrue = false;
+    }
+    if (typeof parseInt(props.id) === 'number') {
+      //add condition for a id that already exists in db and ap call...
+    } else {
+      mustBeTrue = false;
+    }
+    if (mustBeTrue) {
+      props.handleClick();
+    } else {
+      reset();
+    }
+  }
 
   return (
     <div>
@@ -22,7 +48,7 @@ let Account = (props) => {
       <br></br>
       <div>
         <label htmlFor='password'>Password:</label>
-          <Field name='password' component='input' type='password' placeholder='create password...' onChange={props.handlePW} value='value'/>
+          <Field name='password' component='input' type='password' placeholder='password length of 7 or more' onChange={props.handlePW} value='value'/>
       </div>
       <br></br>
       <div>
@@ -33,7 +59,7 @@ let Account = (props) => {
       <br></br>
       {/* <button id='account-btn' onClick={props.handleSubmit(() => { alert('chee')})}>Next</button> */}
     </form>
-    <button id='account-btn' onClick={props.handleClick}>Next</button>
+    <button id='account-btn' onClick={() => { clearCheckpoint() }}>Next</button>
     <button id='account-clear' onClick={reset}>Reset</button>
     <button id='account-back' onClick={props.handleBack}>Back</button>
     </div>

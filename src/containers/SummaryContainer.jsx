@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { handleCheckout, F1complete, F2complete, F3complete } from '../actions/actions.js';
 import Summary from '../components/Summary.jsx';
 import { stateToArray } from '../utility/utility.js';
 
@@ -40,4 +41,13 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-export default connect(mapStateToProps)(Summary);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toHomePage: (boolean) => { (dispatch(handleCheckout(false))) },
+    reset1: (boolean) => { (dispatch(F1complete(false))) },
+    reset2: (boolean) => { (dispatch(F2complete(false))) },
+    reset3: (boolean) => { (dispatch(F3complete(false))) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);

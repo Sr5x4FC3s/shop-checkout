@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { change } from 'redux-form';
+import { change, reset } from 'redux-form';
 import { handleCheckout, F1complete } from '../actions/actions.js';
 import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
 import Account from '../components/Account.jsx';
@@ -45,7 +45,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: (boolean) => { (dispatch(F1complete(true))) },
+    handleClick: (boolean) => {
+      (dispatch(F1complete(true))) 
+    },
     handleBack: (boolean) => { (dispatch(handleCheckout(false))) },
     handleFN: (event) => { (dispatch(FNinput(event.target.value))) },
     handleLN: (event) => { (dispatch(LNinput(event.target.value))) },
