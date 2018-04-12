@@ -45,9 +45,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleClick: (boolean) => {
-      (dispatch(F1complete(true))) 
-    },
+    handleClick: (boolean) => { (dispatch(F1complete(true))) },
+    handleFail: (boolean) => { (dispatch(F1complete(false))) },
     handleBack: (boolean) => { (dispatch(handleCheckout(false))) },
     handleFN: (event) => { (dispatch(FNinput(event.target.value))) },
     handleLN: (event) => { (dispatch(LNinput(event.target.value))) },

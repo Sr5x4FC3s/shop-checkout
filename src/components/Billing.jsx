@@ -3,37 +3,17 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { F2Complete } from '../actions/actions.js';
 import { L1input, L2input, Cityinput, Stateinput, Zipinput } from '../actions/formActions.js';
+import { checkAddress1, checkAddress2, checkCity, checkState, checkZipCode, validate } from '../utility/validation.js';
 
 let Billing = (props) => {
   const { handleSubmit, reset } = props;
-  const clearCheckpoint = () => {
-    let mustBeTrue = true;
-    let matchAlphabet = /([A-Za-z /-_,.])/gi;
-    if (props.address1.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (props.address2.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (props.city.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (props.state.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (typeof parseInt(props.zipcode) === 'number' && props.zipcode.length === 5) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (mustBeTrue) {
-      props.handleClick();
-    } else {
-      reset();
-    }
+  const clearCheckpoint = async () => {
+    let check1 = await checkAddress1(props);
+    let check2 = await checkAddress2(props);
+    let check3 = await checkCity(props);
+    let check4 = await checkState(props);
+    let check5 = await checkZipCode(props);
+    await validate(props, check1, check2, check3, check4, check5);
   }
 
   return (

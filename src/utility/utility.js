@@ -1,5 +1,6 @@
 const axios = require('axios');
 const React = require('react');
+const bluebird = require('bluebird');
 
 export const stateToArray = (state) => {
   let data = state;
@@ -40,5 +41,11 @@ export const APIget = (props) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+export const verifyValidID = (props) => {
+  let id = props.id;
+
+  return axios.get(`/verifyid/id=${id}`, props);
 };
 

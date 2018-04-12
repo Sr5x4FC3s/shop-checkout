@@ -3,33 +3,16 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { F3Complete, F3data } from '../actions/actions.js';
 import { EXPinput, CCinput, CVVinput, Zip2input } from '../actions/formActions.js';
+import { checkCredit, checkExpiration, checkCVV, checkZipCode2, validate } from '../utility/validation.js';
 
 let Credit = (props) => {
   const { handleSubmit, reset } = props;
-  const clearCheckpoint = (props) => {
-    let mustBeTrue = true;
-    let expirationMatch = /(\d{2}\/\d{4})/gi;
-    if ((typeof parseInt(props.credit) === 'number' && props.credit.length === 15) || (typeof parseInt(props.credit) === 'number' && props.credit.length === 16)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (typeof parseInt(props.expiration) === 'number' && props.expiration.toString().match(expirationMatch)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (typeof parseInt(props.cvv) === 'number' && props.cvv.length === 3) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (typeof parseInt(props.zipcode2) === 'number' && props.zipcode2.length === 5) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (mustBeTrue) {
-      props.handleClick();
-    } else {
-      reset();
-    }
+  const clearCheckpoint = async () => {
+    let check1 = await checkCredit(props);
+    let check2 = await checkExpiration(props);
+    let check3 = await checkCVV(props);
+    let check4 = await checkZipCode2(props);
+    await validate(props, check1, check2, check3, check4, null);
   }
 
   return (

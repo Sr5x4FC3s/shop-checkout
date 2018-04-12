@@ -3,34 +3,17 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { F1Complete, F1data } from '../actions/actions.js';
 import { FNinput, LNinput, PWinput, IDinput } from '../actions/formActions.js';
+import { verifyValidID } from '../utility/utility.js';
+import { checkFirstName, checkLastName, checkPassword, checkCustomId, validate } from '../utility/validation.js';
 
 let Account = (props) => {
   const { handleSubmit, reset } = props;
-  const clearCheckpoint = () => {
-    let mustBeTrue = true;
-    let matchAlphabet = /([A-Za-z -])/gi;
-    if (props.firstName.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (props.lastName.match(matchAlphabet)) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (props.password.length > 7) {
-    } else {
-      mustBeTrue = false;
-    }
-    if (typeof parseInt(props.id) === 'number') {
-      //add condition for a id that already exists in db and ap call...
-    } else {
-      mustBeTrue = false;
-    }
-    if (mustBeTrue) {
-      props.handleClick();
-    } else {
-      reset();
-    }
+  const clearCheckpoint = async () => {
+    let check1 = await checkFirstName(props);
+    let check2 = await checkLastName(props);
+    let check3 = await checkPassword(props);
+    let check4 = await checkCustomId(props);
+    await validate(props, check1, check2, check3, check4, null);
   }
 
   return (
@@ -57,7 +40,6 @@ let Account = (props) => {
           <Field name='id' component='input' type='text' placeholder='enter custom ID' onChange={props.handleID} value='value'/>
       </div>
       <br></br>
-      {/* <button id='account-btn' onClick={props.handleSubmit(() => { alert('chee')})}>Next</button> */}
     </form>
     <button id='account-btn' onClick={() => { clearCheckpoint() }}>Next</button>
     <button id='account-clear' onClick={reset}>Reset</button>

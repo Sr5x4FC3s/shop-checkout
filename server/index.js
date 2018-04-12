@@ -12,8 +12,7 @@ app.use('/', express.static(path.join(__dirname, '../dist')));
 
 app.get('/search/id=:id', (req, res) => {
   let id = req.params.id;
-  console.log(`this is the id: `, id);
-  // console.log(`this is invoked`, res)
+
   db.search(id, (err, data) => {
     console.log(data);
     let dataObject = data[0];
@@ -22,6 +21,20 @@ app.get('/search/id=:id', (req, res) => {
     res.status(200).send(dataObject);
   });
 });
+
+app.get('/verifyid/id=:id', (req, res) => {
+  let id = req.params.id;
+  console.log('this is the invocation from the verify id thingy', id);
+  db.search(id, (err, data) => {
+    console.log(data);
+    let dataObject = data[0];
+    console.log('dataobj', dataObject);
+    if (dataObject  === undefined) {
+      res.status(200).send(`NOT_FOUND`);
+    }
+    res.status(200).send(dataObject);
+  });
+})
 
 app.post('/account/id=:id', (req, res) => {
   let id = req.params.id;
