@@ -23,10 +23,24 @@ export const checkLastName = (props) => {
   return valid;
 };
 
+export const checkPasswordParams = (target) => {
+  let checkSPcase = /([!@#$%^&*])/gi;
+  let checkUpper = /([A-Z]){1,}/gi;
+  let checkIntegers = /([0-9])/gi;
+  let valid = false;
+
+  if (target.match(checkSPcase) && target.match(checkUpper) && target.match(checkIntegers)) {
+    valid = true;
+  } else {
+    alert('enter a valid password with at least one special character, at least one capital character, and at least one numerical value');
+  }
+  return valid;
+};
+
 export const checkPassword = (props) => {
   let valid = true;
-
-  if (props.password.length > 7) {
+  let validateSP = checkPasswordParams(props.password);
+  if (props.password.length > 7 && validateSP === true) {
   } else {
     valid = false;
     alert('enter a password with length that is greater than 7');
